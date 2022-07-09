@@ -1,0 +1,96 @@
+{% extends 'topnov.html' %} 
+{% load static %}
+
+            <script>
+                function dueFunc(){
+                    var due = new Date(document.getElementById("datetoday").value);
+                    due.setDate(due.getDate() + 10);
+                    document.getElementById("adoptdate").value = due.toDateString();   
+            
+                    if (due.value == due.value){
+                        document.getElementById('Rem').value = "Adopt";
+                    }
+                    var first = new Date(dadopt); 
+                    var ffirst = parseInt((first.getTime() + 2592000000)  / 1000);
+                    var second = new Date(returned); 
+                    var ssecond = parseInt(second.getTime() / 1000);     
+
+                    var diff = ssecond - ffirst;
+
+                    var one_day_epoch = 24*60*60 ;  
+                    var day = diff/one_day_epoch;
+
+                    if (ssecond > ffirst){
+                        var pen = 100;
+                        var money = day * pen;
+                        document.getElementById('Pay').value = money;
+                    } 
+                    else{
+                        document.getElementById('Pay').value = "No Payment";
+                    }   
+                }
+        </script>
+
+        <div class="pic"></div>
+                <h4>Adoptor Information</h4>
+        <div class="Dog-Info">
+
+            <table>
+                <tr>
+                 <td>Your Link:</td>
+                    <td>Adoptor:</td>
+                    <td>Contact Number:</td>
+                    <td>Age:</td>
+                    <td>Address:</td>
+                    <td>E-mail Address:</td>
+                </tr>
+                <tr>
+                    
+                    <td>enimals.ph/enimalproj/{{aId.id}}</td>
+                    <td>{{aId.name.upper}}</td>
+                    <td>{{aId.number.upper}}</td>
+                    <td>{{aId.age.upper}}</td>
+                    <td>{{aId.address.upper}}</td>
+                    <td>{{aId.emailaddress.upper}}</td>
+                </tr>
+
+            </table>
+
+            <div class="Dog-Info">
+                <h4>Dog Data Adoption</h4> 
+
+
+                <form method="POST" id="fields" action="doglist.html"> 
+
+                    <label>Date Today</label><br>
+                    <input type="date" name="datetoday" id="datetoday" onchange="dueFunc()" required> <br>
+
+                    <label>Date to Adopt</label><br>
+                    <input type="text" name="adoptdate" id="adoptdate" readonly="" value="" required> <br>
+
+                    <label>Remarks</label> <br>
+                    <input type="text" name="DateRem" id="Rem" readonly="" value=""><br>
+                
+                   
+                    <input type="submit" name="btn-list" id="btnSave" value="Confirm" class="button">
+
+                    <input type="hidden" name="csrfmiddlewaretoken" value="OYWnil9CNosiLJOqUcyH0MsjrTKUkwAergg2XqlaGoC9Tj3MqBnlbHBe1rW70ypM">
+
+
+                </form>
+              
+            </div>
+            <div class="log">
+
+            <p id="log">Adopt Log</p>
+
+       
+            <table id="doglist" name='doglist'>
+                <tr>
+
+                    <th>No.</th>
+                    <th>Due Date</th>
+                    <th>Remarks</th>
+
+            <a href="doglist.html" class="list">Dog List</a><br><br><br>
+{% endblock %}

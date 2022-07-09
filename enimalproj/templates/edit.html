@@ -1,0 +1,29 @@
+{% extends 'topnov.html' %} 
+{% load static %}
+
+        <div class="pic"></div>
+                <h4>Dog List</h4>
+
+        <div class="Dog-Info">
+
+            <form method="POST" id="fields" action="/enimalproj/edit/update/{{adoptorId}}"> 
+                {% csrf_token %}
+
+                <input type="text" name="gender" id="gender" placeholder="Dog Gender" required> 
+            
+                <input type="text" name="breed" id="breed" placeholder="Dog Breed (ex.Bulldog)" required=""> <br>
+ 
+                <input type="text" name="fur" id="fur" required placeholder="Dog Fur Color (ex.Black)">
+
+                <input type="text" name="category" id="category" placeholder="Puppy or Adult Dog?" required>
+                <br>
+
+            
+                <input type="submit" name="btn-list" id="btnSave" value="Update" class="button">
+                {% endfor %}
+                
+           
+            </form>
+              
+        </div>
+{% endblock %}

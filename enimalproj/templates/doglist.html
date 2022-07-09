@@ -1,0 +1,55 @@
+{% extends 'topnov.html' %} 
+{% load static %}
+
+        <div class="pic"></div>
+                <h4>Dog List</h4>
+
+        <div class="Dog-Info">
+
+            <form method="POST" id="fields" action="doglist.html"> 
+
+                <input type="text" name="gender" id="gender" placeholder="Dog Gender" required> 
+            
+                <input type="text" name="breed" id="breed" placeholder="Dog Breed (ex.Bulldog)" required=""> <br>
+ 
+                <input type="text" name="fur" id="fur" required placeholder="Dog Fur Color (ex.Black)">
+
+                <input type="text" name="category" id="category" placeholder="Puppy or Adult Dog?" required>
+                <br>
+
+            
+                <input type="submit" name="btn-list" id="btnSave" value="Confirm" class="button">
+              
+
+            </form>
+              
+        </div>
+
+        <div class="log">
+
+            <p id="log">Dog Data List</p>
+
+       
+            <table id="doglist" name='doglist'>
+                <tr>
+                    <th>Gender</th>
+                    <th>Breed</th>
+                    <th>Fur Color</th>
+                    <th>Category</th> 
+                </tr>
+                {% for item in NewAdoptor.AddDog_set.all %}
+                <tr>
+                    <td style="text-align: left;">{{ forloop.counter}}:{{Item.gender}}</td>
+                    <td>{{Item.breed}}</td>
+                    <td>{{Item.fur}}</td>
+                    <td>{{Item.category}}</td>
+                    <td style="width: 20px;"><a href="update" style="color: black;">Update</a></td>
+                    <td style="width: 20px;"><a href="/delete/{{doglist}}" style="color: black;">Delete</a></td>
+                {% endfor %}
+                </tr><br><br>    
+			
+            </table>
+            <br><br><br><center><a href="dogdonation.html" class="adopt">Dog Donation</a></center><br><br><br>
+         </div>
+         
+{% endblock %}

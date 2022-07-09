@@ -1,0 +1,90 @@
+{% extends 'topnov.html' %} 
+{% load static %}
+        <script>
+         function donstsFunc(){
+            var sts = new Date(document.getElementById("trans").value);
+
+            if (sts.value == sts.value){
+                document.getElementById('DonSts').value = "On Process";
+            }
+        }
+    
+         </script>
+         
+        <div class="borrowing">
+        <div class="pic"></div>
+                <h4>Adoptor Information</h4>
+
+            <table>
+                <tr>
+                 <td>Your Link:</td>
+                    <td>Adoptor:</td>
+                    <td>Contact Number:</td>
+                    <td>Age:</td>
+                    <td>Address:</td>
+                    <td>E-mail Address:</td>
+                </tr>
+                <tr>
+                    <td>enimals.ph/enimalproj/{{newlist_url}}</td>
+                    <td>enimals.ph/enimalproj/{{name}}</td>
+                    <td>enimals.ph/enimalproj/{{number}}</td>
+                    <td>enimals.ph/enimalproj/{{age}}</td>
+                    <td>enimals.ph/enimalproj/{{address}}</td>
+                    <td>enimals.ph/enimalproj/{{emailaddress}}</td>
+                </tr>
+
+            </table>
+
+            <div class="Dog-Info">
+
+                <h4>Dog Donation</h4>
+
+                <form method="POST" id="fields" action="dogdonation.html"> 
+
+                    <label>Amount of Donation</label> <br> 
+                    <input type="Number" name="amount" id="amount" min="1" required> <br>
+
+                    <label>Date Transaction</label> <br>
+                    <input type="date" name="trans" id="trans" required onchange="donstsFunc()"> <br>
+                                 
+                    <label>Message</label> <br>
+                    <input type="text" name="Message" id="Message" > <br>
+
+                    <label>Donation Status</label> <br>
+                    <input type="text" name="DonSts" id="DonSts" required readonly=""> <br>
+                
+                   
+                    <input type="submit" name="btn-list" id="btnSave" value="Confirm" class="button">
+
+                    <input type="hidden" name="csrfmiddlewaretoken" value="OYWnil9CNosiLJOqUcyH0MsjrTKUkwAergg2XqlaGoC9Tj3MqBnlbHBe1rW70ypM">
+
+
+                </form>
+              
+            </div>
+            <div class="log">
+            <p id="log">Dog Donation Transaction Log</p>
+       
+            
+            <table id="booklist" name="booklist">
+                <tr>
+
+                    <th>Amount of Donation</th>
+                    <th>Date Transaction</th>
+                    <th>Message</th>
+                    <th>Donation Status</th>
+                    
+                </tr>
+
+                <tr>
+                    <td>{{ forloop.counter}}:{{amount}}</td>
+                    <td>{{trans}}</td>
+                    <td>{{Message}}</td>
+                    <td>{{DonSts}}</td>
+                </tr>
+                
+            </table><br>
+    
+        </div>
+
+{% endblock %}

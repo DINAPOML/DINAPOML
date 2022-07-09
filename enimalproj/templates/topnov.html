@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>E-nimals</title>
+		<link rel="icon" href="{% static 'img/enimallogo.jpg' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
+	<header class="topnav">
+			<img class="topnav" src="{% static 'img/enimallogo.jpg' %}" alt="Logo"/>
+			<a class="topnav" href="{% url 'aboutus' %}">About Us</a>
+			<a class="topnav" href="{% url 'mainpage' %}">Adopt</a>
+			<a class="topnav" href="{% url 'facts1' %}">Facts</a>
+			<a class="topnav" href="{% url 'home' %}">Home</a>
+		</header>
+
+	<footer class="container">
+            <p id="copy">Copyright &copy; 2022 E-nimals.</p>
+    </footer>
+
+</html>
+
+	

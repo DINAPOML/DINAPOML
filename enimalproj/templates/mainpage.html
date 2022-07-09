@@ -1,0 +1,58 @@
+{% extends 'topnov.html' %}	
+{% load static %}
+
+
+		<h4>Dog Adoption Application</h4>
+		<div class="item4">
+				<div class="User-Info">
+                <form method="POST" id="fields" action="dogadoption.html"> 
+
+                <label for="Name"></label>
+                <input type="text" 
+						id="name" 
+						size="30" 
+						name="name" 
+						placeholder="Name of Adoptor" required=""><br>
+
+                <label for="ContactNumber"></label>
+                <input type="text" 
+						id="number" 
+						size="30" 
+						name="number"
+						maxlength="11"
+						placeholder="Adoptor Contact Number"required=""><br>
+
+                <label for="Age"></label>
+                <input type="text" 
+						id="age" 
+						size="30" 
+						name="age" 
+						placeholder="Adoptor Age" required=""><br>
+
+                <label for="Address"></label>
+                <input type="text" 
+						id="address" 
+						size="30" 
+						name="address"
+						placeholder="Adoptor Address" required=""><br>
+
+                <label for="EmailAddress"></label>
+                <input type="text" 
+						id="emailaddress" 
+						size="30" 
+						name="emailaddress" 
+						placeholder="Adoptor E-mail Address" required=""><br>
+
+                </div>
+
+                <div class="Book-Info">
+
+                <input href='dogadoption.html' type="submit" name="btn-list" id="btnSave" value="Confirm" class="button">
+                
+                </div>
+                
+                <input type="hidden" name="csrfmiddlewaretoken" value="5eNOhOzwrOShod18cCCQrMqGsrDYRDYxDKJwkPduGL2TPgLeYpE85kn5iUELLLwE">
+
+            </form>
+            <div class="pic"></div>
+{% endblock %}
